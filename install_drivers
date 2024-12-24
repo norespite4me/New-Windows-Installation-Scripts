@@ -1,0 +1,4 @@
+install-module pswindowsupdate -Force -Confirm:$False;
+import-module pswindowsupdate -Force;
+Get-WindowsUpdate -Category 'Drivers' -Confirm:$False;
+Install-WindowsUpdate -Category 'Drivers' -AcceptAll -IgnoreReboot;
