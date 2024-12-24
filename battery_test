@@ -1,12 +1,12 @@
 Write-Host "Running Battery Test... May Take ~60 Seconds...";
 
 try {
-	& cmd.exe powercfg -energy -output report.html;
+	Invoke-Expression -Command "cmd.exe /c powercfg -energy -output report.html";
 	./report.html;
 } catch {
 	Write-Host "\nFalling back on BatteryReport";
     try {
-    	& cmd.exe powercfg /batteryreport -output report.html;
+    	Invoke-Expression -Command "cmd.exe /c powercfg /batteryreport -output report.html";
        	./report.html;
 	} catch {
     	Write-Host "\nTry booting Linux and running 'upower -e' then upower -i <path_to_battery>";
