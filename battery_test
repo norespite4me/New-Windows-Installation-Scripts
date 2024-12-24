@@ -1,0 +1,12 @@
+try {
+	powercfg -energy -output report.html;
+    ./report.html;
+} catch {
+	Write-Host "\nFalling back on BatteryReport";
+    try {
+    	powercfg /batteryreport -output report.html;
+        ./report.html;
+    } catch {
+    	Write-Host "\nTry booting Linux and running 'upower -e' then upower -i <path_to_battery>"
+    }
+}
