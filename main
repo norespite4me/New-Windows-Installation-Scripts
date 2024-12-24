@@ -1,9 +1,13 @@
 $driver_installation = {
-irm https://pastebin.com/raw/MFYQM8XC
+  irm https://pastebin.com/raw/MFYQM8XC;
 }
 
 $battery_test = {
-irm https://pastebin.com/raw/17ZXA43H
+  irm https://pastebin.com/raw/17ZXA43H;
+}
+
+$windows_activation = {
+  & ([ScriptBlock]::Create((irm https://get.activated.win))) /HWID;
 }
 
 
@@ -19,15 +23,14 @@ Write-Host "Done";
 Write-Host "";
 
 Write-Host "Installing Drivers...";
-Start-Job -ScriptBlock $driver_installation;
+Start-Process Powershell -Verb RunAs -ArgumentList "-Command $driver_installation";
 Write-Host "";
 
 Write-Host "Running Battery Test...";
-Start-Job -ScriptBlock $battery_test;
+Start-Process Powershell -Verb RunAs -ArgumentList "-NoExit -Command $battery_test";
 Write-Host "";
 
 Write-Host "Activating Windows...";
-& ([ScriptBlock]::Create((irm https://get.activated.win))) /HWID;
-Write-Host "Done";
+Invoke-Expression $windows_activation;
 Write-host "";
 Write-Host "Reboot now to apply updates...";
