@@ -1,3 +1,5 @@
+Write-Host "Running Battery Test... May Take ~60 Seconds...";
+
 try {
 	& cmd.exe powercfg -energy -output report.html;
 	./report.html;
