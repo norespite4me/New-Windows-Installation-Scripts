@@ -1,14 +1,14 @@
 $driver_installation = {
   irm https://pastebin.com/raw/MFYQM8XC;
-}
+};
 
 $battery_test = {
   irm https://pastebin.com/raw/17ZXA43H;
-}
+};
 
 $windows_activation = {
   & ([ScriptBlock]::Create((irm https://get.activated.win))) /HWID;
-}
+};
 
 
 Write-Host "Welcome to Brandon's Windows Activation and Driver Updater Script..."
