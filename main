@@ -1,0 +1,24 @@
+Write-Host "Welcome to Brandon's Windows Activation and Driver Updater Script..."
+Write-Host "Syncing System Clock...";
+& ([ScriptBlock]::Create((irm https://pastebin.com/raw/ZsqtRXJ5)));
+Write-Host "Done";
+Write-Host "";
+
+Write-Host "Installing WinGet Powershell Module from PSGallery...";
+& ([ScriptBlock]::Create((irm https://pastebin.com/raw/KF970HMn)));
+Write-Host "Done";
+Write-Host "";
+
+Write-Host "Installing Drivers...";
+Start-Process Powershell -ArgumentList "-command 'irm https://pastebin.com/raw/MFYQM8XC|iex'"
+Write-Host "";
+
+Write-Host "Running Battery Test...";
+Start-Process Powershell -ArgumentList "-noexit", "-command 'irm https://pastebin.com/raw/17ZXA43H|iex'"
+Write-Host "";
+
+Write-Host "Activating Windows...";
+& ([ScriptBlock]::Create((irm https://get.activated.win))) /HWID;
+Write-Host "Done";
+Write-host "";
+Write-Host "Reboot now to apply updates...\n\n";
