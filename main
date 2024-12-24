@@ -33,4 +33,3 @@ Write-Host "";
 Write-Host "Activating Windows...";
 Start-Job -ScriptBlock $windows_activation;
 Write-host "";
-Write-Host "Reboot now to apply updates...";
