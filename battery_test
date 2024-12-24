@@ -7,6 +7,6 @@ try {
     	& cmd.exe powercfg /batteryreport -output report.html;
        	./report.html;
 	} catch {
-    	Write-Host "\nTry booting Linux and running 'upower -e' then upower -i <path_to_battery>"
+    	Write-Host "\nTry booting Linux and running 'upower -e' then upower -i <path_to_battery>";
     }
 }
