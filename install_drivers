@@ -1,6 +1,12 @@
-install-module pswindowsupdate -Force -Confirm:$False;
-import-module pswindowsupdate -Force;
-Get-WindowsUpdate -Category 'Drivers' -Confirm:$False;
-Install-WindowsUpdate -Category 'Drivers' -AcceptAll -IgnoreReboot;
+try{
+  install-module pswindowsupdate -Force -Confirm:$False;
+  import-module pswindowsupdate -Force;
+  Get-WindowsUpdate -Category 'Drivers' -Confirm:$False;
+  Install-WindowsUpdate -Category 'Drivers' -AcceptAll -IgnoreReboot;
 
-Write-Host "Reboot Now to Apply Updates";
+  Write-Host "Reboot Now to Apply Updates";
+} catch {
+  Write-Host "Error installing updates... Check network connection...";
+}
+
+
