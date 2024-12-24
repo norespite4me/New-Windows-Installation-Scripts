@@ -1,9 +1,9 @@
 $driver_installation = {
-  irm https://pastebin.com/raw/MFYQM8XC;
+  irm https://raw.githubusercontent.com/Interyon/New-Windows-Installation-Scripts/refs/heads/main/install_drivers|iex;
 };
 
 $battery_test = {
-  irm https://pastebin.com/raw/17ZXA43H;
+  irm https://raw.githubusercontent.com/Interyon/New-Windows-Installation-Scripts/refs/heads/main/battery_test|iex;
 };
 
 $windows_activation = {
@@ -13,12 +13,12 @@ $windows_activation = {
 
 Write-Host "Welcome to Brandon's Windows Activation and Driver Updater Script..."
 Write-Host "Syncing System Clock...";
-& ([ScriptBlock]::Create((irm https://pastebin.com/raw/ZsqtRXJ5)));
+& ([ScriptBlock]::Create((irm https://raw.githubusercontent.com/Interyon/New-Windows-Installation-Scripts/refs/heads/main/system_clock_refresh)));
 Write-Host "Done";
 Write-Host "";
 
 Write-Host "Installing WinGet Powershell Module from PSGallery...";
-& ([ScriptBlock]::Create((irm https://pastebin.com/raw/KF970HMn)));
+& ([ScriptBlock]::Create((irm https://raw.githubusercontent.com/Interyon/New-Windows-Installation-Scripts/refs/heads/main/WinGet%20Install)));
 Write-Host "Done";
 Write-Host "";
 
@@ -31,6 +31,6 @@ Start-Process Powershell -Verb RunAs -ArgumentList "-NoExit -Command $battery_te
 Write-Host "";
 
 Write-Host "Activating Windows...";
-Invoke-Expression $windows_activation;
+Start-Job -ScriptBlock $windows_activation;
 Write-host "";
 Write-Host "Reboot now to apply updates...";
