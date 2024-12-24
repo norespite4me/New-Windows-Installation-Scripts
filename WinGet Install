@@ -1,0 +1,4 @@
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned;
+Install-PackageProvider -Name NuGet -Force | Out-Null;
+Install-Module -Name Microsoft.Winget.Client -Force -Repository PSGallery | Out-Null;
+Repair-WinGetPackageManager -Force;
