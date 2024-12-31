@@ -11,7 +11,7 @@ try{
 
   Write-Host "Reboot Now to Apply Updates";
 
-  if ([System.Windows.MessageBox]::Show($Messageboxbody, $MessageboxTitle, $ButtonType, $MessageIcon)){
+  if ($wshell.Popup("Would you like to reboot?",0,"Alert",64+4)){
     shutdown -r -t 5;
   }
 } catch {
