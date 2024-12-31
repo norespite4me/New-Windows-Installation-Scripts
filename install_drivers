@@ -5,14 +5,11 @@ try{
   Install-WindowsUpdate -Category 'Drivers' -AcceptAll -IgnoreReboot;
 
   Write-Host "Reboot Now to Apply Updates";
-
-
-  $answer = $wshell.Popup("Would you like to reboot?",0,"Alert",64+4)
-  if ($answer -eq "Yes"){
-    shutdown -r -t 5;
   }
 } catch {
   Write-Host "Error installing updates... Check network connection...";
 }
 
-
+$answer = $wshell.Popup("Would you like to reboot?",0,"Alert",64+4)
+  if ($answer -eq "Yes"){
+    shutdown -r -t 5;
