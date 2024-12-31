@@ -10,6 +10,9 @@ try{
   Write-Host "Error installing updates... Check network connection...";
 }
 
-$answer = $wshell.Popup("Would you like to reboot?",0,"Alert",64+4)
+$answer = [System.Windows.MessageBox]::Show("Updates Finished. Reboot?", "Brandon's Windows Updater", "YesNo");
   if ($answer -eq "Yes"){
-    shutdown -r -t 5;
+    $p = Get-Process -Name "sysprep";
+    Stop-Process -InputObject $p;
+    C:\Windows\System32\Sysprep\sysprep.exe /oobe /reboot;
+  }
