@@ -23,11 +23,11 @@ Write-Host "Done";
 Write-Host "";
 
 Write-Host "Installing Drivers...";
-Start-Process Powershell -Verb RunAs -ArgumentList ("-NoExit" + $driver_installation) -PassThru;
+Start-Process Powershell -Verb RunAs -ArgumentList ($driver_installation) -PassThru;
 Write-Host "";
 
 Write-Host "Running Battery Test...";
-Start-Process Powershell -Verb RunAs -ArgumentList ("-NoExit" + $battery_test) -PassThru;
+Start-Process Powershell -Verb RunAs -ArgumentList ($battery_test) -PassThru;
 Write-Host "";
 
 Write-Host "Activating Windows...";
