@@ -6,7 +6,9 @@ try{
 
   Write-Host "Reboot Now to Apply Updates";
 
-  if ($wshell.Popup("Would you like to reboot?",0,"Alert",64+4)){
+
+  $answer = $wshell.Popup("Would you like to reboot?",0,"Alert",64+4)
+  if ($answer -eq "Yes"){
     shutdown -r -t 5;
   }
 } catch {
