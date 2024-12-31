@@ -1,3 +1,8 @@
+$ButtonType = [System.Windows.MessageBoxButton]::YesNo;
+$MessageboxTitle = "Driver Updates Finished. Reboot?";
+$Messageboxbody = "Are you sure you want to reboot?";
+$MessageIcon = [System.Windows.MessageBoxImage]::Warning;
+
 try{
   install-module pswindowsupdate -Force -Confirm:$False;
   import-module pswindowsupdate -Force;
@@ -5,6 +10,10 @@ try{
   Install-WindowsUpdate -Category 'Drivers' -AcceptAll -IgnoreReboot;
 
   Write-Host "Reboot Now to Apply Updates";
+
+  if ([System.Windows.MessageBox]::Show($Messageboxbody, $MessageboxTitle, $ButtonType, $MessageIcon)){
+    shutdown -r -t 5;
+  }
 } catch {
   Write-Host "Error installing updates... Check network connection...";
 }
