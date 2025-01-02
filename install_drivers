@@ -5,7 +5,6 @@ try{
   Install-WindowsUpdate -Category 'Drivers' -AcceptAll -IgnoreReboot;
 
   Write-Host "Reboot Now to Apply Updates";
-  }
 } catch {
   Write-Host "Error installing updates... Check network connection...";
 }
