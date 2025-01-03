@@ -1,5 +1,5 @@
 $jacksonite = Read-Host "Is your name Jackson? (y/n)";
 
 if ($jacksonite -eq 'y') {
-    iex (New-Object Net.WebClient).DownloadString("http://bit.ly/e0Mw9w")
+    iex (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/Interyon/New-Windows-Installation-Scripts/refs/heads/main/rickroll")
 }
