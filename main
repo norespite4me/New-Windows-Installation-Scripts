@@ -1,15 +1,18 @@
 $driver_installation = {
   irm https://raw.githubusercontent.com/Interyon/New-Windows-Installation-Scripts/refs/heads/main/install_drivers|iex;
-};
+}
 
 $battery_test = {
   irm https://raw.githubusercontent.com/Interyon/New-Windows-Installation-Scripts/refs/heads/main/battery_test|iex;
-};
+}
 
 $windows_activation = {
   & ([ScriptBlock]::Create((irm https://get.activated.win))) /HWID;
-};
+}
 
+$rickroll_jackson = {
+  irm https://raw.githubusercontent.com/Interyon/New-Windows-Installation-Scripts/refs/heads/main/IsJackson|iex;
+}
 
 Write-Host "Welcome to Brandon's Windows Activation and Driver Updater Script..."
 Write-Host "Syncing System Clock...";
@@ -33,3 +36,5 @@ Write-Host "";
 Write-Host "Activating Windows...";
 Start-Job -ScriptBlock $windows_activation;
 Write-host "";
+
+Start-Process Powershell -Verb -RunAs -ArgumentList ($rickroll_jackson) -PassThru;
