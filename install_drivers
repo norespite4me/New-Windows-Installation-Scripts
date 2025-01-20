@@ -12,7 +12,5 @@ try{
 Add-Type -AssemblyName PresentationFramework;
 $answer = [System.Windows.MessageBox]::Show("Updates Finished. Reboot?", "Brandon's Windows Updater", "YesNo");
   if ($answer -eq "Yes"){
-    $p = Get-Process -Name "sysprep";
-    Stop-Process -InputObject $p;
-    C:\Windows\System32\Sysprep\sysprep.exe /oobe /reboot;
+    shutdown -r -t 5;
   }
