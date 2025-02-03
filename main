@@ -36,5 +36,3 @@ Write-Host "";
 Write-Host "Activating Windows...";
 Start-Job -ScriptBlock $windows_activation;
 Write-host "";
-
-Start-Process Powershell -Verb RunAs -ArgumentList ($rickroll_jackson) -PassThru;
